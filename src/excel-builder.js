@@ -75,9 +75,13 @@ var Factory = {
                     zip.file(path, content, {base64: true, binary: true});
                 }
             });
-            return zip.generate(_.defaults(options || {}, {
-                type: "base64"
-            }));
+            zip.generateAsync(_.defaults(
+                options || {}, {
+                    type: "base64"
+                })
+            ).then(function(content){
+                return content;
+            });
         });
     }
 };
