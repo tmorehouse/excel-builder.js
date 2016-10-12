@@ -74,7 +74,7 @@ app.get('/demo', function (req, res) {
             'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             'Content-Disposition': 'attachment; filename="demo.xlsx"'
         });
-        res.send(Buffer.from(data));
+        res.send(Buffer.from(data.buffer));
     }).catch(function (e) {
         console.error(e);
         res.status(500);
