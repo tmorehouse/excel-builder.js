@@ -20,7 +20,7 @@ var onmessage = function(event) {
         base64: !!event.data.base64
     });
     zip.generateAsync({
-        type: !!event.data.base64 ? 'base64' : 'binarystring'
+        type: !!event.data.base64 ? 'base64' : JSZip.support.uint8array ? 'uint8array' : 'binarystring'
     }).then(function(content){
         postMessage({
             status: 'done',
